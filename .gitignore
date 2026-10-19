@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Test tooling
+.pytest_cache/
+artifacts/
+.pyright/
+
+# Environment secrets
+.env
+
+# OS noise
+.DS_Store
+Thumbs.db

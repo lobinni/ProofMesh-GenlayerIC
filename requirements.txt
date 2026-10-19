@@ -1,0 +1,6 @@
+# Pinned toolchain for ProofMesh development and tests.
+genlayer-py==0.16.3
+genlayer-test==0.29.2
+genvm-linter==0.11.0
+pyright==1.1.411
+pytest==9.1.1

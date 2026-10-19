@@ -1,0 +1,46 @@
+name: contract-ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  contract-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install toolchain
+        run: pip install -r requirements.txt
+
+      - name: Contract shape check (genvm-lint check)
+        run: genvm-lint check contracts/proof_mesh.py
+
+      - name: Schema generation (same surface as Studio deploy)
+        run: genvm-lint schema --json contracts/proof_mesh.py
+
+      - name: Direct-mode unit tests
+        run: pytest tests/direct -q
+
+  integration-smoke:
+    # Full leader/validator consensus against a live network.
+    # Runs only when explicitly requested (workflow_dispatch) because it
+    # needs network access and takes minutes.
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install toolchain
+        run: pip install -r requirements.txt
+      - name: Live integration smoke tests
+        env:
+          PROOFMESH_INTEGRATION: "1"
+        run: gltest tests/integration/ -v -s

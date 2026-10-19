@@ -1,0 +1,21 @@
+{
+  "method": "assess",
+  "call": {
+    "claim_id": "claim-demo"
+  },
+  "expected_result_shape": {
+    "claim_id": "claim-demo",
+    "state": "SETTLED",
+    "verdict": "ATTESTED | DISPUTED | INSUFFICIENT | UNRESOLVED",
+    "groups": [["src-iana"], ["src-iana-managed"]],
+    "graph_consistent": true,
+    "supporting_groups": 2,
+    "refuting_groups": 0,
+    "result_fingerprint": "64 lowercase hex characters"
+  },
+  "notes": [
+    "One-shot: a READY claim becomes SETTLED exactly once. Calling assess again reverts.",
+    "Groups shown above are illustrative: the model decides DERIVED / SAME_ORIGIN / UNCLEAR / INDEPENDENT per pair at runtime.",
+    "Read the full settled record afterwards with get_claim."
+  ]
+}

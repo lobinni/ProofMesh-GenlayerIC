@@ -1,0 +1,20 @@
+{
+  "method": "register_source",
+  "calls": [
+    {
+      "source_id": "src-iana",
+      "url": "https://www.iana.org/domains/example",
+      "expected_hash": ""
+    },
+    {
+      "source_id": "src-iana-managed",
+      "url": "https://www.iana.org/domains",
+      "expected_hash": ""
+    }
+  ],
+  "notes": [
+    "Call register_source once per entry; each returns a 64-hex definition fingerprint.",
+    "expected_hash is optional: supply a lowercase SHA-256 of the expected rendered text to bind the source to exact content.",
+    "The URL is canonicalized (scheme/hostname lowercased, IDNA, port 443 dropped); get_source returns the stored canonical form."
+  ]
+}

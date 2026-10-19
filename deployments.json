@@ -1,0 +1,60 @@
+{
+  "contract": "ProofMesh",
+  "schema": "proofmesh.v1",
+  "source": "contracts/proof_mesh.py",
+  "source_sha256": "cdeea1a13ba05564ebd84011242e07d7f673b6612cab7b515213cf66391c6cb9",
+  "source_revision": "E106-hardened: canonical genlayer star import, direct gl.Contract inheritance, explicit __init__",
+  "current": "0xC99B99b6A22D01629Bd21fA543E3e7E583E5EF3F",
+  "deployments": [
+    {
+      "network": "GenLayer Studionet",
+      "network_key": "studionet",
+      "chain_id": 61999,
+      "rpc": "https://studio.genlayer.com/api",
+      "explorer": "https://explorer-studio.genlayer.com",
+      "address": "0xC99B99b6A22D01629Bd21fA543E3e7E583E5EF3F",
+      "explorer_address_url": "https://explorer-studio.genlayer.com/address/0xC99B99b6A22D01629Bd21fA543E3e7E583E5EF3F",
+      "deployed_via": "GenLayer Studio (studio.genlayer.com)",
+      "currency": "GEN",
+      "status": "deployed",
+      "source_sha256_match": true,
+      "note": "Deployed from the current E106-hardened source (canonical genlayer import, direct gl.Contract inheritance, explicit __init__). This is the artifact to cite for submission evidence."
+    }
+  ],
+  "previous_deployments": [
+    {
+      "network": "GenLayer Studionet",
+      "network_key": "studionet",
+      "chain_id": 61999,
+      "rpc": "https://studio.genlayer.com/api",
+      "explorer_address_url": "https://explorer-studio.genlayer.com/address/0x8b296E94fC53576cE436249c2aD7DdC95E5eB955",
+      "address": "0x8b296E94fC53576cE436249c2aD7DdC95E5eB955",
+      "status": "superseded",
+      "superseded_by": "0xC99B99b6A22D01629Bd21fA543E3e7E583E5EF3F",
+      "note": "Deployed from the earlier header revision that routed the contract base class through a dynamic alias; Studio accepted it, but static GenVM validation reported E106. Superseded by a deployment of the corrected canonical source."
+    }
+  ],
+  "verification": {
+    "read_only_check": "python samples/query_live.py",
+    "expected_schema": "proofmesh.v1",
+    "expected_methods": [
+      "register_source",
+      "create_claim",
+      "void_claim",
+      "assess",
+      "get_source",
+      "get_claim",
+      "get_claim_fingerprint",
+      "get_owner_source_ids",
+      "get_owner_claim_ids",
+      "get_protocol_info"
+    ],
+    "expected_bounds": {
+      "max_sources_per_claim": 8,
+      "max_pairs_per_claim": 28,
+      "max_fetched_content_per_source": 32768,
+      "max_total_fetched_content": 65536,
+      "max_owner_records": 128
+    }
+  }
+}

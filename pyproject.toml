@@ -1,0 +1,18 @@
+[project]
+name = "proofmesh"
+version = "1.0.0"
+description = "Bounded provenance-graph evidence attestation as a GenLayer Intelligent Contract."
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests/direct"]
+pythonpath = ["tests/direct"]
+addopts = "-q"
+markers = [
+    "integration: live-network tests (run with gltest, opt-in)",
+]
+
+[tool.pyright]
+include = ["contracts", "tests"]
+pythonVersion = "3.12"
+reportMissingImports = false

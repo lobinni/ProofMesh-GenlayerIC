@@ -1,0 +1,15 @@
+{
+  "method": "create_claim",
+  "call": {
+    "claim_id": "claim-demo",
+    "statement": "Example domains are reserved for use in documentation.",
+    "criteria": "Support requires the page itself to state or demonstrate the documentation purpose of the domain. Mere mention is NEUTRAL.",
+    "source_ids": ["src-iana", "src-iana-managed"],
+    "required_support_groups": 1
+  },
+  "notes": [
+    "All source_ids must already be registered; they are sorted and deduplicated before the definition is fingerprinted.",
+    "required_support_groups must be between 1 and the number of distinct sources.",
+    "source_ids may contain at most 8 identifiers (28 pairwise relations at assessment time)."
+  ]
+}

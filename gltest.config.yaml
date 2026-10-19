@@ -1,0 +1,21 @@
+# gltest network configuration for ProofMesh integration tests.
+networks:
+  default: localnet
+
+  localnet:
+    url: "http://127.0.0.1:4000/api"
+    leader_only: false
+
+  studionet:
+    # Pre-configured by genlayer-test - accounts are auto-generated.
+
+  # Hosted Studio Dev network (shared dev environment, chain 61997).
+  # Uncomment to target it explicitly:
+  # studio-dev:
+  #   url: "https://studio-dev.genlayer.com/api"
+
+paths:
+  contracts: "contracts"
+  artifacts: "artifacts"
+
+environment: .env
